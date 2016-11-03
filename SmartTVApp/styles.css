@@ -1,0 +1,839 @@
+ table{
+ table {
+    border-collapse: collapse;
+
+    left:600px;
+    top:400px;
+}
+
+
+
+#im{
+	
+	 height: 50px;
+	 width:50px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+
+}
+
+figure{
+	float: left;
+	margin: 5px;
+	padding: 15px;
+	border: 0px solid black;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+ }
+ 
+ body {
+	margin: 0;
+	padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+ }
+ #pilates{
+	 color: white;
+	 font-size: 400%;
+ }
+  #cap{
+	 color: white;
+	 text-align: center;
+	 font-size: 300%;
+ }
+  #Arrireplan 
+{ 
+	 left: 514px; 
+	 top: 200px; 
+	 position: absolute; 
+	 width: 352px;
+	 height: 543px;
+	 z-index:75;
+}
+ 
+ #btn_1{
+background-image: url("/images/classes.png");
+
+}
+
+#btn_2{
+background-image: url("/images/gallery.jpg");
+
+}
+#btn_3{
+background-image: url("/images/gallery.jpg");
+
+}
+ 
+.selected_btn{
+border: solid 4px white;
+box-shadow: 6px 6px 20px 10px gray;
+}
+
+.main_btn:hover{
+border: solid 4px white;
+box-shadow: 6px 6px 20px 10px gray;
+}
+ 
+ #background 
+{ 
+	 left: 0px; 
+	 top: 0px; 
+	 position: relative; 
+	 margin-left: auto; 
+	 margin-right: auto; 
+	 width: 2048px;
+	 height: 1080px;
+	 overflow: hidden;
+	 z-index:0;
+	} 
+
+#figcaption{
+	
+	text-align: center;
+	font-size: 50px;
+}
+ #Fond1 
+{ 
+	 left: 0px; 
+	 top: 0px; 
+	 position: absolute; 
+	 width: 2048px;
+	 height: 1536px;
+	 z-index:1;
+} 
+
+ #leftovers 
+{ 
+	 left: 0px; 
+	 top: 123px; 
+	 position: absolute; 
+	 width: 2086px;
+	 height: 1213px;
+	 z-index:2;
+} 
+
+ #Rectangle4 
+{ 
+	 left: 1px; 
+	 top: -1px; 
+	 position: absolute; 
+	 width: 2048px;
+	 height: 1535px;
+	 z-index:3;
+} 
+
+ #gradient 
+{ 
+	 left: 399px; 
+	 top: 991px; 
+	 position: absolute; 
+	 width: 1650px;
+	 height: 332px;
+	 z-index:4;
+} 
+
+ #back 
+{ 
+	 left: 399px; 
+	 top: -1px; 
+	 position: absolute; 
+	 width: 1650px;
+	 height: 152px;
+	 z-index:5;
+} 
+
+ #Ellipse1 
+{ 
+	 left: 1898px; 
+	 top: 41px; 
+	 position: absolute; 
+	 width: 68px;
+	 height: 68px;
+	 z-index:6;
+} 
+
+ #girl 
+{ 
+	 left: 1842px; 
+	 top: -39px; 
+	 position: absolute; 
+	 width: 174px;
+	 height: 261px;
+	 z-index:7;
+} 
+
+ #Rectanglearrondi1 
+{ 
+	 left: 1337px; 
+	 top: 44px; 
+	 position: absolute; 
+	 width: 487px;
+	 height: 62px;
+	 z-index:8;
+} 
+
+ #Search 
+{ 
+	 left: 1374px; 
+	 top: 64px; 
+	 position: absolute; 
+	 width: 95px;
+	 height: 23px;
+	 z-index:9;
+} 
+
+ #Magnifier 
+{ 
+	 left: 1768px; 
+	 top: 61px; 
+	 position: absolute; 
+	 width: 29px;
+	 height: 29px;
+	 z-index:10;
+} 
+
+ #Favorites 
+{ 
+	 left: 507px; 
+	 top: 69px; 
+	 position: absolute; 
+	 width: 126px;
+	 height: 22px;
+	 z-index:11;
+} 
+
+ #Rectangle3 
+{ 
+	 left: 506px; 
+	 top: 144px; 
+	 position: absolute; 
+	 width: 128px;
+	 height: 7px;
+	 z-index:12;
+} 
+
+ #Watchlist 
+{ 
+	 left: 728px; 
+	 top: 69px; 
+	 position: absolute; 
+	 width: 133px;
+	 height: 22px;
+	 z-index:13;
+} 
+
+ #Rectangle5copie5 
+{ 
+	 left: 399px; 
+	 top: 1035px; 
+	 position: absolute; 
+	 width: 1650px;
+	 height: 502px;
+	 z-index:14;
+} 
+
+ #Rectangle9 
+{ 
+	 left: 399px; 
+	 top: 1117px; 
+	 position: absolute; 
+	 width: 293px;
+	 height: 170px;
+	 z-index:15;
+} 
+
+ #Rectangle8 
+{ 
+	 left: 399px; 
+	 top: 1117px; 
+	 position: absolute; 
+	 width: 7px;
+	 height: 170px;
+	 z-index:16;
+} 
+
+ #Rectangle9copie 
+{ 
+	 left: 399px; 
+	 top: 1283px; 
+	 position: absolute; 
+	 width: 293px;
+	 height: 170px;
+	 z-index:17;
+} 
+
+ #Season2 
+{ 
+	 left: 468px; 
+	 top: 1188px; 
+	 position: absolute; 
+	 width: 153px;
+	 height: 26px;
+	 z-index:18;
+} 
+
+ #Season1 
+{ 
+	 left: 470px; 
+	 top: 1356px; 
+	 position: absolute; 
+	 width: 145px;
+	 height: 26px;
+	 z-index:19;
+} 
+
+ #Forme1copie6 
+{ 
+	 left: 399px; 
+	 top: 1283px; 
+	 position: absolute; 
+	 width: 293px;
+	 height: 3px;
+	 z-index:20;
+} 
+
+ #Rectangle1 
+{ 
+	 left: -1px; 
+	 top: -1px; 
+	 position: absolute; 
+	 width: 427px;
+	 height: 1535px;
+	 z-index:21;
+} 
+
+ #Ellipse5 
+{ 
+	 left: 386px; 
+	 top: 34px; 
+	 position: absolute; 
+	 width: 79px;
+	 height: 80px;
+	 z-index:22;
+} 
+
+ #Ellipse5_0 
+{ 
+	 left: -1px; 
+	 top: -1px; 
+	 position: absolute; 
+	 width: 452px;
+	 height: 1535px;
+	 z-index:23;
+} 
+
+ #LiveTVFilmsSeriesSpo 
+{ 
+	 left: 10px;
+	 top: 158px;
+	 position: absolute; 
+	 width: 115px;
+	 height: 545px;
+	 z-index:24;
+}
+
+ #abc{
+	 left: 89px;
+	 top: 202px;
+	 position: absolute;
+	 width: 115px;
+	 height: 545px;
+	 z-index:24;
+
+ }
+
+ #Forme1 
+{ 
+	 left: 1px; 
+	 top: 276px; 
+	 position: absolute; 
+	 width: 400px;
+	 height: 3px;
+	 z-index:25;
+} 
+
+ #Forme1copie5 
+{ 
+	 left: 1px; 
+	 top: 148px; 
+	 position: absolute; 
+	 width: 400px;
+	 height: 4px;
+	 z-index:26;
+} 
+
+ #Forme1copie 
+{ 
+	 left: 1px; 
+	 top: 407px; 
+	 position: absolute; 
+	 width: 400px;
+	 height: 3px;
+	 z-index:27;
+} 
+
+ #Forme1copie2 
+{ 
+	 left: 1px; 
+	 top: 542px; 
+	 position: absolute; 
+	 width: 400px;
+	 height: 3px;
+	 z-index:28;
+} 
+
+ #Forme1copie3 
+{ 
+	 left: 1px; 
+	 top: 672px; 
+	 position: absolute; 
+	 width: 400px;
+	 height: 3px;
+	 z-index:29;
+} 
+
+ #Forme1copie4 
+{ 
+	 left: 1px; 
+	 top: 800px; 
+	 position: absolute; 
+	 width: 400px;
+	 height: 3px;
+	 z-index:30;
+} 
+
+ #TVAPP025 
+{ 
+	 left: 24px; 
+	 top: 36px; 
+	 position: absolute; 
+	 width: 301px;
+	 height: 87px;
+	 z-index:31;
+} 
+
+ #Rectangle7 
+{ 
+	 left: 380px; 
+	 top: 61px; 
+	 position: absolute; 
+	 width: 39px;
+	 height: 6px;
+	 z-index:32;
+} 
+
+ #Rectangle7copie 
+{ 
+	 left: 380px; 
+	 top: 72px; 
+	 position: absolute; 
+	 width: 39px;
+	 height: 6px;
+	 z-index:33;
+} 
+
+ #Rectangle7copie2 
+{ 
+	 left: 380px; 
+	 top: 83px; 
+	 position: absolute; 
+	 width: 39px;
+	 height: 6px;
+	 z-index:34;
+} 
+
+ #Rectangle5copie6 
+{ 
+	 left: 690px; 
+	 top: 1117px; 
+	 position: absolute; 
+	 width: 466px;
+	 height: 337px;
+	 z-index:35;
+} 
+
+ #leftoversS2E1 
+{ 
+	 left: 575px; 
+	 top: 1111px; 
+	 position: absolute; 
+	 width: 682px;
+	 height: 350px;
+	 z-index:36;
+} 
+
+ #Rectangle5 
+{ 
+	 left: 690px; 
+	 top: 1117px; 
+	 position: absolute; 
+	 width: 466px;
+	 height: 337px;
+	 z-index:37;
+} 
+
+ #Episode1AxisMundi 
+{ 
+	 left: 713px; 
+	 top: 1142px; 
+	 position: absolute; 
+	 width: 160px;
+	 height: 62px;
+	 z-index:38;
+} 
+
+ #62min 
+{ 
+	 left: 1045px; 
+	 top: 1408px; 
+	 position: absolute; 
+	 width: 87px;
+	 height: 22px;
+	 z-index:39;
+} 
+
+ #Ellipse3 
+{ 
+	 left: 866px; 
+	 top: 1235px; 
+	 position: absolute; 
+	 width: 102px;
+	 height: 102px;
+	 z-index:40;
+} 
+
+ #Play 
+{ 
+	 left: 905px; 
+	 top: 1267px; 
+	 position: absolute; 
+	 width: 32px;
+	 height: 39px;
+	 z-index:41;
+} 
+
+ #Rectangle5copie4 
+{ 
+	 left: 1188px; 
+	 top: 1117px; 
+	 position: absolute; 
+	 width: 466px;
+	 height: 337px;
+	 z-index:42;
+} 
+
+ #leftoversS2E2 
+{ 
+	 left: 1101px; 
+	 top: 1102px; 
+	 position: absolute; 
+	 width: 650px;
+	 height: 366px;
+	 z-index:43;
+} 
+
+ #Rectangle5copie 
+{ 
+	 left: 1188px; 
+	 top: 1117px; 
+	 position: absolute; 
+	 width: 466px;
+	 height: 337px;
+	 z-index:44;
+} 
+
+ #Episode2AMatterofGeo 
+{ 
+	 left: 1212px; 
+	 top: 1142px; 
+	 position: absolute; 
+	 width: 334px;
+	 height: 69px;
+	 z-index:45;
+} 
+
+ #60min 
+{ 
+	 left: 1544px; 
+	 top: 1408px; 
+	 position: absolute; 
+	 width: 86px;
+	 height: 22px;
+	 z-index:46;
+} 
+
+ #Ellipse3_0 
+{ 
+	 left: 1364px; 
+	 top: 1235px; 
+	 position: absolute; 
+	 width: 103px;
+	 height: 103px;
+	 z-index:47;
+} 
+
+ #Play_0 
+{ 
+	 left: 1403px; 
+	 top: 1268px; 
+	 position: absolute; 
+	 width: 33px;
+	 height: 38px;
+	 z-index:48;
+} 
+
+ #Rectangle5copie3 
+{ 
+	 left: 1685px; 
+	 top: 1117px; 
+	 position: absolute; 
+	 width: 466px;
+	 height: 337px;
+	 z-index:49;
+} 
+
+ #leftoversS2E3 
+{ 
+	 left: 1632px; 
+	 top: 1110px; 
+	 position: absolute; 
+	 width: 634px;
+	 height: 357px;
+	 z-index:50;
+} 
+
+ #Rectangle5copie2 
+{ 
+	 left: 1685px; 
+	 top: 1117px; 
+	 position: absolute; 
+	 width: 466px;
+	 height: 337px;
+	 z-index:51;
+} 
+
+ #Episode3OffRamp 
+{ 
+	 left: 1707px; 
+	 top: 1142px; 
+	 position: absolute; 
+	 width: 139px;
+	 height: 69px;
+	 z-index:52;
+} 
+
+ #56min 
+{ 
+	 left: 2038px; 
+	 top: 1408px; 
+	 position: absolute; 
+	 width: 86px;
+	 height: 22px;
+	 z-index:53;
+} 
+
+ #Ellipse3_1 
+{ 
+	 left: 1858px; 
+	 top: 1235px; 
+	 position: absolute; 
+	 width: 103px;
+	 height: 103px;
+	 z-index:54;
+} 
+
+ #Play_1 
+{ 
+	 left: 1897px; 
+	 top: 1268px; 
+	 position: absolute; 
+	 width: 33px;
+	 height: 38px;
+	 z-index:55;
+} 
+
+ #gradient_0 
+{ 
+	 left: 1196px; 
+	 top: 1035px; 
+	 position: absolute; 
+	 width: 853px;
+	 height: 502px;
+	 z-index:56;
+} 
+
+ #next 
+{ 
+	 left: 1915px; 
+	 top: 1233px; 
+	 position: absolute; 
+	 width: 60px;
+	 height: 106px;
+	 z-index:57;
+} 
+
+ #slide 
+{ 
+	 left: 689px; 
+	 top: 1517px; 
+	 position: absolute; 
+	 width: 593px;
+	 height: 12px;
+	 z-index:58;
+} 
+
+ #TheLeftoversisanAmer 
+{ 
+	 left: 941px; 
+	 top: 629px; 
+	 position: absolute; 
+	 width: 968px;
+	 height: 227px;
+	 z-index:59;
+} 
+
+ #separate 
+{ 
+	 left: 941px; 
+	 top: 598px; 
+	 position: absolute; 
+	 width: 970px;
+	 height: 3px;
+	 z-index:60;
+} 
+
+ #CreatedbyDamonLindel 
+{ 
+	 left: 943px; 
+	 top: 407px; 
+	 position: absolute; 
+	 width: 539px;
+	 height: 162px;
+	 z-index:61;
+} 
+
+ #Star 
+{ 
+	 left: 1449px; 
+	 top: 329px; 
+	 position: absolute; 
+	 width: 29px;
+	 height: 28px;
+	 z-index:62;
+} 
+
+ #Starcopie 
+{ 
+	 left: 1489px; 
+	 top: 329px; 
+	 position: absolute; 
+	 width: 28px;
+	 height: 28px;
+	 z-index:63;
+} 
+
+ #Starcopie2 
+{ 
+	 left: 1527px; 
+	 top: 329px; 
+	 position: absolute; 
+	 width: 28px;
+	 height: 28px;
+	 z-index:64;
+} 
+
+ #Starcopie3 
+{ 
+	 left: 1566px; 
+	 top: 329px; 
+	 position: absolute; 
+	 width: 28px;
+	 height: 28px;
+	 z-index:65;
+} 
+
+ #Starcopie4 
+{ 
+	 left: 1604px; 
+	 top: 329px; 
+	 position: absolute; 
+	 width: 29px;
+	 height: 28px;
+	 z-index:66;
+} 
+
+ #TheLeftovers 
+{ 
+	 left: 941px; 
+	 top: 211px;
+	 position: absolute; 
+	 width: 472px;
+	 height: 54px;
+	 z-index:67;
+} 
+
+ #leftovers2 
+{ 
+	 left: 505px; 
+	 top: 310px; 
+	 position: absolute; 
+	 width: 370px;
+	 height: 550px;
+	 z-index:68;
+} 
+
+ #Ellipse2 
+{ 
+	 left: 523px; 
+	 top: 328px; 
+	 position: absolute; 
+	 width: 54px;
+	 height: 54px;
+	 z-index:69;
+} 
+
+ #Heart 
+{ 
+	 left: 534px; 
+	 top: 342px; 
+	 position: absolute; 
+	 width: 32px;
+	 height: 29px;
+	 z-index:70;
+} 
+
+ #Rectanglearrondi2 
+{ 
+	 left: 505px; 
+	 top: 893px; 
+	 position: absolute; 
+	 width: 370px;
+	 height: 69px;
+	 z-index:71;
+} 
+
+ #Startwatching 
+{ 
+	 left: 601px; 
+	 top: 920px; 
+	 position: absolute; 
+	 width: 178px;
+	 height: 15px;
+	 z-index:72;
+} 
+
+ #layer_73 
+{ 
+	 left: 506px; 
+	 top: 225px; 
+	 position: absolute; 
+	 width: 249px;
+	 height: 17px;
+	 z-index:73;
+} 
