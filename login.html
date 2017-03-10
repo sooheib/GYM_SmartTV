@@ -1,0 +1,166 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>Downloader Sample App</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script type="text/javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+	<script type="text/javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
+	<script type="text/javascript" src="$MANAGER_WIDGET/Common/API/Plugin.js"></script>
+	<script type="text/javascript" src="$MANAGER_WIDGET/Common/Plugin/Define.js"></script>
+	<script src="js/jquery-1.9.1.js"></script>
+
+	<!-- This is what you need -->
+	<link href="styles1.css" rel="stylesheet" type="text/css">
+
+	<style type="text/css">  div.span {width: 180px;} .setfield {border: 5px red dashed;}</style>
+
+		<script src="dist/sweetalert-dev.js"></script>
+
+	<link rel="stylesheet" href="dist/sweetalert.css">
+	
+	<script>
+		function sigin() {
+			console.log("sig in");
+
+			var username=$("#input1").val();
+			var password=$("#input2").val();
+			var dataString = 'username='+username+'&password='+password;
+
+			if($.trim(username).length>0 && $.trim(password).length>0)
+			{
+				console.log("s3");
+
+				$.ajax({
+					type: "POST",
+					url: "https://spartaapp.azurewebsites.net/smartTV/ajaxLogin.php",
+					data: dataString,
+					cache: false,
+					beforeSend: function(){
+						$("#login").val('Connecting...');},
+					success: function(data){
+						if(data)
+						{
+							console.log("success");
+							swal({
+								title: "Success!",
+								text: "Good Job!",
+								type: "success",
+								confirmButtonText: "Cool",
+								timer:3500
+
+							});
+
+							setTimeout("location.href = 'home.html';",4000);
+
+						//	window.location.href = "home.html" ;
+						}
+						else
+						{
+							console.log("error");
+							swal({
+								title: "Error!",
+								text: "Check your credentials!",
+								type: "error",
+								confirmButtonText: "Cool",
+								timer:5000
+							});
+						}
+					}
+				});
+
+			}
+			else
+			{
+                console.log("s3");
+
+                $.ajax({
+                    type: "POST",
+                    url: "https://spartaapp.azurewebsites.net/smartTV/ajaxLogin.php",
+                    data: dataString,
+                    cache: false,
+                    beforeSend: function(){
+                        $("#login").val('Connecting...');},
+                    success: function(data){
+                        if(data)
+                        {
+                            console.log("success");
+                            swal({
+                                title: "Success!",
+                                text: "Good Job!",
+                                type: "success",
+                                confirmButtonText: "Cool",
+                                timer:3500
+
+                            });
+
+                            setTimeout("location.href = 'home.html';",3500);
+
+
+
+                            //	window.location.href = "home.html" ;
+                        }
+                        else
+                        {
+                            console.log("error");
+                            swal({
+                                title: "Error Authentication!",
+                                text: "Please fill out all this field!",
+                                type: "error",
+                                confirmButtonText: "Thank You !",
+                                timer:3500
+                            });
+                        }
+                    }
+                });
+
+			}
+			return false;
+
+		}
+		
+	</script>
+
+
+</head>
+<body>
+
+
+	<div id="main" >
+		<img src="logo.png" class="img">
+		<div id="box" class="login">
+
+		<label>
+			<input id="input1" type="text" placeholder="Username" required="required" name="" class="tabindex" tabindex="1">
+		</label>
+
+		<br />
+		<br />
+		<label>
+			<input id="input2" type="password" name="" placeholder="Password" required="required" class="tabindex" tabindex="2">
+		</label>
+		<br />
+		<br />
+			<button   id="input3" onclick="sigin()" class="btn btn-primary btn-block btn-large tabindex" tabindex="5">Sign in</button>
+
+		</div>
+		<div id="Up52"><img src="images/Up52.png"></div>
+		<div id="Back50"><img src="images/Back50.png"></div>
+		<div id="Down52"><img src="images/Down52.png"></div>
+		<div id="Enter52"><img src="images/Enter52.png"></div>
+		<div id="Enter"><img src="images/Enter.png"></div>
+		<div id="Exit"><img src="images/Exit.png"></div>
+		<div id="UpDown"><img src="images/UpDown.png"></div>
+		<div id="Back"><img src="images/Back.png"></div>
+		<div id="Enter_0"><img src="images/Enter_0.png"></div>
+		<div id="Exit52"><img src="images/Exit52.png"></div>
+	</div>
+
+	<script src="js/debug.js"></script>
+	<script src="js/samsung_mock.js"></script>
+	<script src="js/keyboard.js"></script>
+	<script src="js/remoteControlNavigator.js"></script>
+	<script src="js/mainlogin.js"></script>
+	<script type="text/javascript" src="$MANAGER_WIDGET/Common/IME_XT9/ime.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>psdtowebclasses650.psd</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/TVKeyValue.js"></script>
+    <script language="JavaScript" src="js/mainschedule.js"></script>
+
+    <link href='assets/css/fullcalendar.css' rel='stylesheet' />
+    <link href='assets/css/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <script src='assets/js/moment.min.js'></script>
+    <script src='assets/js/jquery.min.js'></script>
+    <script src='assets/js/jquery-ui.min.js'></script>
+    <script src='assets/js/fullcalendar.min.js'></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+            var zone = "05:30";  //Change this to your timezone
+
+            $.ajax({
+                url: 'https://spartaapp.azurewebsites.net/smartTV/process.php',
+                type: 'POST', // Send post data
+                data: 'type=fetch',
+                async: false,
+                success: function(s){
+                    json_events = s;
+                }
+            });
+
+
+            var currentMousePos = {
+                x: -1,
+                y: -1
+            };
+            jQuery(document).on("mousemove", function (event) {
+                currentMousePos.x = event.pageX;
+                currentMousePos.y = event.pageY;
+            });
+
+            /* initialize the external events
+             -----------------------------------------------------------------*/
+
+            $('#external-events .fc-event').each(function() {
+
+                // store data so the calendar knows to render an event upon drop
+                $(this).data('event', {
+                    title: $.trim($(this).text()), // use the element's text as the event title
+                    stick: true // maintain when user navigates (see docs on the renderEvent method)
+                });
+
+                // make the event draggable using jQuery UI
+                $(this).draggable({
+                    zIndex: 999,
+                    revert: true,      // will cause the event to go back to its
+                    revertDuration: 0  //  original position after the drag
+                });
+
+            });
+
+
+            /* initialize the calendar
+             -----------------------------------------------------------------*/
+
+            $('#calendar').fullCalendar({
+                events: JSON.parse(json_events),
+                //events: [{"id":"14","title":"New Event","start":"2015-01-24T16:00:00+04:00","allDay":false}],
+                utc: true,
+                header: {
+                    left: '',
+                    center: 'title',
+                    right:''					},
+
+                slotDuration: '00:30:00',
+
+            });
+
+            function getFreshEvents(){
+                $.ajax({
+                    url: 'process.php',
+                    type: 'POST', // Send post data
+                    data: 'type=fetch',
+                    async: false,
+                    success: function(s){
+                        freshevents = s;
+                    }
+                });
+                $('#calendar').fullCalendar('addEventSource', JSON.parse(freshevents));
+            }
+
+
+
+        });
+
+    </script>
+    <style>
+
+        body {
+            text-align: center;
+            font-size: 18px;
+            font-style: oblique;
+            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        }
+
+        #trash{
+            width:32px;
+            height:32px;
+            float:left;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        #wrap {
+            width: 1100px;
+            margin: 0 auto;
+        }
+
+        #external-events {
+            float: left;
+            width: 150px;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+            background: #eee;
+            text-align: left;
+        }
+
+        #external-events h4 {
+            font-size: 16px;
+            margin-top: 0;
+            padding-top: 1em;
+        }
+
+        #external-events .fc-event {
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        #external-events p {
+            margin: 1.5em 0;
+            font-size: 11px;
+            color: #666;
+        }
+
+        #external-events p input {
+            margin: 0;
+            vertical-align: middle;
+        }
+
+        #calendar {
+        }
+
+    </style>
+</head>
+<body>
+<div id="background">
+    <div id="Fond1"><img src="images/Fond1.png"></div>
+    <div id="Calque9"><img src="images/Calque9.png"></div>
+    <div id="Rectangle4"><img src="images/Rectangle4.png"></div>
+    <div id="back"><img src="images/back.png"></div>
+    <div id="Courses"><img src="images/Schedule.png"></div>
+    <div id="Rectangle3"><img src="images/Rectangle3.png"></div>
+    <div id="Rectangle1"><img src="images/Rectangle1.png"></div>
+    <div id="Ellipse5"><img src="images/Ellipse5.png"></div>
+    <div id="Ellipse5_0"><img src="images/Ellipse5_0.png"></div>
+
+    <div class="main_btn" id="btn_1"><img src="images/Home.png"></div>
+    <div class="main_btn" id="btn_2"><img src="images/Courses_0.png"></div>
+    <div class="main_btn"id="btn_3"><img src="images/Exercises.png"></div>
+    <div class="main_btn" id="btn_4"><img src="images/Schedule.png"></div>
+    <div class="main_btn" id="btn_5"><img src="images/About.png"></div>
+    <div class="main_btn" id="btn_6"></div>
+
+
+    <div id="Forme1"><img src="images/Forme1.png"></div>
+    <div id="Forme1copie5"><img src="images/Forme1copie5.png"></div>
+    <div id="Forme1copie"><img src="images/Forme1copie.png"></div>
+    <div id="Forme1copie2"><img src="images/Forme1copie2.png"></div>
+    <div id="Forme1copie3"><img src="images/Forme1copie3.png"></div>
+    <div id="Forme1copie4"><img src="images/Forme1copie4.png"></div>
+    <div id="Rectangle7"><img src="images/Rectangle7.png"></div>
+    <div id="Rectangle7copie"><img src="images/Rectangle7copie.png"></div>
+    <div id="Rectangle7copie2"><img src="images/Rectangle7copie2.png"></div>
+    <div id="helperback"><img src="images/helperback.png"></div>
+
+
+    <div id="back_0"><img src="images/back_0.png"></div>
+    <div id="Up52"><img src="images/Up52.png"></div>
+    <div id="Back50"><img src="images/Back50.png"></div>
+    <div id="Down52"><img src="images/Down52.png"></div>
+    <div id="Enter52"><img src="images/Enter52.png"></div>
+    <div id="Enter"><img src="images/Enter.png"></div>
+    <div id="Exit"><img src="images/Exit.png"></div>
+    <div id="UpDown"><img src="images/UpDown.png"></div>
+    <div id="Back"><img src="images/Back.png"></div>
+    <div id="Enter_0"><img src="images/Enter_0.png"></div>
+    <div id="Exit52"><img src="images/Exit52.png"></div>
+
+    <div id="Spartalogo"><img src="images/Spartalogo.png"></div>
+
+    <div id="Arrireplan">
+
+        <div id='calendar'></div>
+
+        <div style='clear:both'></div>		</div>
+</div>
+
+</body>
+</html>

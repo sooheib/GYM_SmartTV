@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; Charset=UTF-8"/>
+    <title>VideoTV</title>
+    <link rel="stylesheet" href="css/styleHome.css"/>
+    <link rel="stylesheet" href="css/smartbox.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script type="text/javascript" src="js/src/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/src/libs/lodash.compat.min.js"></script>
+    <script type="text/javascript" src="js/src/libs/event_emitter.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="js/src/sb.js"></script> 
+    <script type="text/javascript" src="js/src/sb.platform.js"></script> 
+
+    <script type="text/javascript" src="js/src/platforms/_browser/player.browser.js"></script> 
+    <script type="text/javascript" src="js/src/platforms/_browser/sb.platform.browser.js"></script> 
+    <script type="text/javascript" src="js/src/platforms/_browser/voicelink.browser.js"></script> 
+    
+    <script type="text/javascript" src="js/src/platforms/dune/player.dune.js"></script> 
+    <script type="text/javascript" src="js/src/platforms/dune/sb.platform.dune.js"></script> 
+
+    <script type="text/javascript" src="js/src/platforms/lg/player.lg.js"></script> 
+    <script type="text/javascript" src="js/src/platforms/lg/sb.platform.lg.js"></script> 
+    
+    <script type="text/javascript" src="js/src/platforms/mag/player.mag.js"></script> 
+    <script type="text/javascript" src="js/src/platforms/mag/sb.platform.mag.js"></script> 
+
+    <script type="text/javascript" src="js/src/platforms/philips/player.philips.js"></script> 
+    <script type="text/javascript" src="js/src/platforms/philips/sb.platform.philips.js"></script> 
+
+    <script type="text/javascript" src="js/src/platforms/samsung/localstorage.js"></script> 
+    <script type="text/javascript" src="js/src/platforms/samsung/player.samsung.js"></script> 
+    <script type="text/javascript" src="js/src/platforms/samsung/sb.platform.samsung.js"></script> 
+    <script type="text/javascript" src="js/src/platforms/samsung/voicelink.samsung.js"></script> 
+    
+    <script type="text/javascript" src="js/src/plugins/input.js"></script> 
+    <script type="text/javascript" src="js/src/plugins/keyboard.js"></script> 
+    <script type="text/javascript" src="js/src/plugins/legend.js"></script> 
+    <script type="text/javascript" src="js/src/plugins/log.js"></script> 
+    <script type="text/javascript" src="js/src/plugins/nav.js"></script> 
+    <script type="text/javascript" src="js/src/plugins/player.js"></script> 
+    <script type="text/javascript" src="js/src/plugins/voicelink.js"></script> 
+
+    <script type="text/javascript">
+        SB.ready(function(){
+            $$nav.on();
+            $(document.body).on({
+                'nav_key:right':function(){},
+                'nav_key:left':function(){},
+                'nav_key:down':function(){},
+                'nav_key:up':function(){},
+                'nav_key:return':function(){},
+                'nav_key:exit':function(){},
+                'nav_key:tools':function(){},
+                'nav_key:ff':function(){},
+                'nav_key:rw':function(){},
+                'nav_key:next':function(){},
+                'nav_key:prev':function(){},
+                'nav_key:enter':function(){},
+                'nav_key:red':function(){},
+                'nav_key:green':function(){},
+                'nav_key:yellow':function(){},
+                'nav_key:blue':function(){},
+                'nav_key:ch_up':function(){},
+                'nav_key:ch_down':function(){},
+                'nav_key:n0':function(){},
+                'nav_key:n1':function(){},
+                'nav_key:n2':function(){},
+                'nav_key:n3':function(){},
+                'nav_key:n4':function(){},
+                'nav_key:n5':function(){},
+                'nav_key:n6':function(){},
+                'nav_key:n7':function(){},
+                'nav_key:n8':function(){},
+                'nav_key:n9':function(){},
+                'nav_key:prech':function(){},
+                'nav_key:smart':function(){},
+                'nav_key:play':function(){},
+                'nav_key:stop':function(){},
+                'nav_key:pause':function(){},
+                'nav_key:subt':function(){},
+                'nav_key:info':function(){},
+                'nav_key:rec':function(){}
+            });
+            var currentScene = null;
+            var showContent = function ( scene ) {
+                var cur = currentScene,
+                newScene = scenes[scene];
+
+                if ( cur !== newScene ) {
+                    if ( !newScene ) {
+                        $$error('Scene ' + scene + ' doesn\'t exist');
+                    }
+                    else {
+                        if ( cur ) {
+                            cur.hide();
+                        }
+                        newScene.show();
+                        currentScene = newScene;
+                    }
+                }
+            }
+            _.templateSettings.interpolate = /\{\{([\s\S]+?)\}\}/g;
+
+            var videoItemHtml = _.template('<li data-url="{{url}}" data-type="{{type}}" role="presentation" class="video-item nav-item"><a href="#">{{num}}. {{title}}</a></li>');
+
+            var scenes = {
+                menu:{
+                    _inited:false,
+                    init:function(){
+                        this.$el = $('.js-scene-menu');
+                    },
+                    show: function () {
+                        if (!this._inited) {
+                            this.init();
+                        }
+                        this.$el.show();
+                        $('#smart_player').hide();
+                    },
+                    hide: function () {
+                        this.$el.hide();
+                        $('#smart_player').show();
+                    }
+                },
+                stream:{
+                    _inited:false,
+                    init: function () {
+                        this.$el = $('.js-scene-stream');
+
+                        this.$el.on('click', '.video-item', this.onItemClick);
+
+                        this.renderItems(App.videos);
+
+                        this._inited = true;
+                    },
+                    show: function () {
+                        if (!this._inited) {
+                            this.init();
+                        }
+                        this.$el.show();
+                    },
+                    hide: function () {
+                        this.$el.hide();
+                    },
+                    onItemClick: function (e) {
+//                        var url = e.currentTarget.getAttribute('data-url');
+//                        Player.play({
+//                            url: url,
+//                            type: e.currentTarget.getAttribute('data-type')
+
+                        parent.location="a.html";
+
+                    },
+                    renderItems: function (items) {
+                        var html = '';
+                        for ( var i = 0, len = items.length; i < len; i++ ) {
+                            items[i].num = i+1;
+                            html += videoItemHtml(items[i]);
+                        }
+                        this.$el.find('.nav-pills').eq(1).html(html);
+                    }
+                },
+                vod:{
+                    _inited:false,
+                    init:function(){
+                        this.$el = $('.js-scene-vod');
+                    },
+                    show: function () {
+                        if (!this._inited) {
+                            this.init();
+                        }
+                        this.$el.show();
+                    },
+                    hide: function () {
+                        this.$el.hide();
+                    }
+                }
+            }
+            $('.menu').on('click', '.menu-item', function ( e ) {
+                var scene = e.currentTarget.getAttribute('data-content');
+                showContent(scene);
+            });
+            $('ul.roller').delegate('li.nav-item', 'nav_focus', function(a,b,c) {
+                if(a.target.getBoundingClientRect().bottom > 720){
+                    var top = ($(a.target).parent('ul').find('li').index(a.target) - 7) * 40;
+                    $(a.target).parent('ul').css('top',(-top+1)+'px');
+                }
+                if(a.target.getBoundingClientRect().top < 398){
+                    var top = ($(a.target).parent('ul').find('li').index(a.target) ) * 40;
+                    $(a.target).parent('ul').css('top',(-top+1)+'px');
+                }
+            })
+
+            showContent('menu');
+        });
+        function goc() {
+
+                parent.location="course.html";
+        }
+        function goa() {
+
+            parent.location="about.html";
+        }
+        function gos() {
+
+            parent.location="schedule.html";
+        }
+        function goe() {
+
+            parent.location="exercises.html";
+        }
+    </script>
+    <style type="text/css">
+        @font-face{
+            font-family: OpenSansLight;
+            src: url(fonts/OpenSans-Light.ttf);
+        }
+        *:focus, .focus{
+            outline: none !important;
+        }
+        body {
+            font-family: OpenSansLight;
+            font-size: 20px/32px;
+            background: transparent;
+        }
+        .bg{
+            background: linear-gradient(210deg, #151B29 0%,#101520 44%,#121824 45%,#2c313e 100%);
+            position: absolute;
+            z-index: -1;
+            width: 1920;
+            height: 1080;
+        }
+        .center-roller{
+            margin-top:20%;
+            margin-left: 55%;
+            margin-right: 5%;
+
+        }
+
+        .btn {
+            border: 1px solid #fff;
+            background: transparent;
+            padding: 25px 32px;
+            margin: 0 29px 32px;
+            color: #fff;
+            transition: background 0.5s ease;
+        }
+        .btn:hover, .btn.focus {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff !important;
+            transition: background 0.5s ease;
+        }
+
+        .menu span.glyphicon{
+            font-size: 46px;
+        }
+        .menu.menu-main{
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+        }
+        .menu > div{
+            display: inline-block;
+        }
+
+        ul.nav-stacked{
+            width: 260px;
+            position: relative;
+            top:0px;
+            transition: top 0.1s ease;
+        }
+        ul.roller.nav-stacked{
+            top: 1px;
+        }
+        .nav-stacked li{
+            border-radius: 0px;
+            margin-top: 0px !important;
+        }
+        
+        .nav-stacked li a{
+            color: #fff;
+            border-radius: 0px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: background 0.5s ease, border 0.5s ease;
+        }
+        .menu .nav-stacked li a:hover, .menu .nav-stacked li.focus a{
+            border-left: 5px solid green;
+        }
+        .nav-stacked li a:hover, .nav-stacked li.focus a{
+            color: #fff;
+            /*background: linear-gradient( 90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100% );*/
+            border-left: 5px solid red;
+            background: rgba(255, 255, 255, 0.3);
+            transition: background 0.5s ease, border 0.5s ease;
+        }
+        .stream-pos{
+            margin-top:358px;
+            height: 362px;
+        }
+        #back_0
+        {
+            left: 424px;
+            top: 1020px;
+            position: absolute;
+            width: 1497px;
+            height: 69px;
+            z-index:23;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+        <div class="scenes-wrapper">
+            
+            <div class="scene scene_menu js-scene-menu" style="display:block;">
+                
+                <div class="container-fluid layout">
+                    <div class="center-roller" style="">
+                        <div class="row">
+                            <div class="menu menu-main">
+                                <div>
+                                    <button onclick="goc()" type="button" class="btn menu-item btn-lg nav-item">
+                                        <span  aria-hidden="true">
+                                            <img src="courses.png"/>
+                                        </span>
+                                    </button><br/>
+                                    <h1>Courses</h1>
+                                </div>
+                                <div>
+                                    <button onclick="gos()" type="button" class="btn menu-item btn-lg nav-item">
+                                        <span  aria-hidden="true">
+                                            <img src="calendar.png"/>
+                                        </span>
+                                    </button><br/>
+                                     <h1>Schedule</h1>
+                                                                     </div>
+                                <div>
+                                    <button onclick="goe()" type="button" class="btn menu-item btn-lg nav-item">
+                                        <span  aria-hidden="true"><img src="exercises.png"/></span>
+                                    </button><br/>
+                                    <h1>Exercises</h1>
+                                </div>
+                                <div>
+                                    <button onclick="goa()" type="button" class="btn menu-item btn-lg nav-item">
+                                        <span  aria-hidden="true"><img src="about.png"/></span>
+                                    </button><br/>
+                                   <h1> About</h1>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    <div id="Left52"><img src="images/Left52.png"></div>
+    <div id="Right52"><img src="images/Right52.png"></div>
+    <div id="Up52_0"><img src="images/Up52_0.png"></div>
+    <div id="Back50_0"><img src="images/Back50_0.png"></div>
+    <div id="Down52_0"><img src="images/Down52_0.png"></div>
+    <div id="Enter52_0"><img src="images/Enter52_0.png"></div>
+    <div id="Enter_1"><img src="images/Enter_1.png"></div>
+    <div id="Exit_0"><img src="images/Exit_0.png"></div>
+    <div id="LeftRight"><img src="images/LeftRight.png"></div>
+    <div id="UpDown_0"><img src="images/UpDown_0.png"></div>
+    <div id="Back_0"><img src="images/Back_0.png"></div>
+    <div id="Enter_2"><img src="images/Enter_2.png"></div>
+    <div id="Exit52_0"><img src="images/Exit52_0.png"></div>
+</body>
+</html>
